@@ -57,7 +57,10 @@ torch_bearers = {
 	siege_value = 0.1
 
 	can_recruit = {
-		government_has_flag = government_is_nomadic
+		OR = {
+			government_has_flag = government_is_nomadic
+			culture = { has_cultural_tradition = tradition_devoted_horsemanship }
+		}
 	}
 	
 	holding_bonus = {
@@ -144,7 +147,13 @@ steppe_raiders = {
 	}
 
 	can_recruit = {
-		mpo_can_recruit_nomad_maa_trigger = yes
+		OR = {
+			mpo_can_recruit_nomad_maa_trigger = yes
+			AND = {
+				NOT = { government_has_flag = government_is_nomadic }
+				culture = { has_cultural_tradition = tradition_mpo_wolves_of_the_deep_steppe }
+			}
+		}
 	}
 
 	buy_cost = { gold = steppe_raiders_recruitment_cost }
@@ -183,14 +192,22 @@ heavy_horse_archers = {
 	}
 
 	can_recruit = {
-		mpo_can_recruit_nomad_maa_trigger = yes
-		trigger_if = {
-			limit = {
-				government_has_flag = government_is_nomadic
-				exists = domicile
+		OR = {
+			AND = {
+				mpo_can_recruit_nomad_maa_trigger = yes
+				trigger_if = {
+					limit = {
+						government_has_flag = government_is_nomadic
+						exists = domicile
+					}
+					domicile = {
+						has_domicile_parameter = unlock_maa_heavy_horse_archers
+					}
+				}
 			}
-			domicile = {
-				has_domicile_parameter = unlock_maa_heavy_horse_archers
+			AND = {
+				NOT = { government_has_flag = government_is_nomadic }
+				culture = { has_cultural_tradition = tradition_mpo_iron_cavalry }
 			}
 		}
 	}
@@ -237,7 +254,13 @@ nomad_lancers = {
 	}
 
 	can_recruit = {
-		mpo_can_recruit_nomad_heavy_cavalry_maa_trigger = yes
+		OR = {
+			mpo_can_recruit_nomad_heavy_cavalry_maa_trigger = yes
+			AND = {
+				NOT = { government_has_flag = government_is_nomadic }
+				culture = { has_cultural_tradition = tradition_mpo_iron_cavalry }
+			}
+		}
 		NOT = {
 			culture = { has_cultural_parameter = strength_in_numbers_heavy_maa_ban }
 		}
