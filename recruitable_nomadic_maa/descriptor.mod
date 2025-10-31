@@ -4,5 +4,5 @@ tags={
 	"Warfare"
 	"Balance"
 }
-name="All Men-at-Arms Size 100"
+name="Recruitable Nomadic Men-at-Arms"
 supported_version="1.16.*"

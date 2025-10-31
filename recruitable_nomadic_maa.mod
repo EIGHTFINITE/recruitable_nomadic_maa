@@ -4,6 +4,6 @@ tags={
 	"Warfare"
 	"Balance"
 }
-name="All Men-at-Arms Size 100"
+name="Recruitable Nomadic Men-at-Arms"
 supported_version="1.16.*"
-path="mod/all_men_at_arms_size_100"
+path="mod/recruitable_nomadic_maa"

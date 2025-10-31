@@ -122,7 +122,7 @@ tradition_mpo_wolves_of_the_deep_steppe = {
 	
 	parameters = {
 		unlock_maa_mangudai = yes
-		all_men_at_arms_size_100_steppe_raiders = yes
+		recruitable_nomadic_maa_steppe_raiders = yes
 	}
 	character_modifier = {
 		prowess = 4
