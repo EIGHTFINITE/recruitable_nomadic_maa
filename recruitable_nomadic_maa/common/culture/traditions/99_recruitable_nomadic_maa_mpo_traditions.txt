@@ -1,0 +1,98 @@
+﻿tradition_mpo_wolves_of_the_deep_steppe = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = wolves_of_the_deep_steppe.dds
+	}
+
+	is_shown = {
+		has_mpo_dlc_trigger = yes
+		OR = {
+			has_cultural_pillar = heritage_mongolic
+			has_cultural_pillar = heritage_turkic
+			has_cultural_pillar = heritage_magyar
+			scope:character = {
+				mpo_can_recruit_nomad_maa_trigger = yes
+			}
+		}
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		scope:character = {
+			government_has_flag = government_is_nomadic
+		}	
+	}
+	
+	parameters = {
+		unlock_maa_mangudai = yes
+		recruitable_nomadic_maa_steppe_raiders = yes
+	}
+	character_modifier = {
+		prowess = 4
+		herd_capacity_mult = 0.2
+		herd_conversion = 0.01
+		nomadic_horde_damage_mult = 0.1
+		nomadic_horde_pursuit_mult = 0.1
+		archer_cavalry_damage_mult = 0.15
+		archer_cavalry_pursuit_mult = 0.2
+		mountains_fertility_growth_mult = medium_culture_county_fertility_value_mult
+		mountains_travel_danger = mountains_medium_danger_reduction
+		hills_travel_danger = hills_medium_danger_reduction
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				multiply = 4
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					has_cultural_pillar = heritage_mongolic
+				}
+				multiply = {
+					value = 0.5
+					desc = heritage_mongolic_name
+				}
+			}
+			
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_mpo_wolves_of_the_deep_steppe }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
+
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 200
+		if = {
+			limit = { # Reduce chance slightly if the culture has access to other "cavalry" types
+				OR = {
+					has_innovation = innovation_war_camels
+					has_innovation = innovation_elephantry
+				}
+			}
+			multiply = 0.4
+		}
+		else_if = {
+			limit = {
+				scope:character ?= {
+					ai_has_warlike_personality = yes
+				}
+			}
+			multiply = 4
+		}
+	}
+}
