@@ -5,5 +5,5 @@ tags={
 	"Balance"
 }
 name="Recruitable Nomadic Men-at-Arms"
-supported_version="1.16.*"
+supported_version="1.*.*"
 path="mod/recruitable_nomadic_maa"
