@@ -105,6 +105,9 @@ kheshig = {
 	
 	can_recruit = {
 		dynasty ?= { has_dynasty_perk = mpo_nomad_legacy_4 }
+		NOT = {
+			culture = { has_cultural_parameter = strength_in_numbers_heavy_maa_ban }
+		}
 	}
 
 	counters = {
@@ -212,6 +215,9 @@ heavy_horse_archers = {
 				NOT = { government_has_flag = government_is_nomadic }
 				culture = { has_cultural_tradition = tradition_mpo_iron_cavalry }
 			}
+		}
+		NOT = {
+			culture = { has_cultural_parameter = strength_in_numbers_heavy_maa_ban }
 		}
 	}
 
