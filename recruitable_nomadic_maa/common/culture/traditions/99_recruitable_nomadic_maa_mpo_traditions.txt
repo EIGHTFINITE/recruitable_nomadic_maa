@@ -11,19 +11,31 @@
 		OR = {
 			has_cultural_pillar = heritage_mongolic
 			has_cultural_pillar = heritage_turkic
-		}
-		NOT = {
-			has_dlc_feature = khans_of_the_steppe
+			has_cultural_pillar = heritage_magyar
+			scope:character = {
+				mpo_can_recruit_nomad_maa_trigger = yes
+			}
 		}
 	}
 
 	can_pick = {
-		custom_description = {
-			text = culture_in_steppe_desc
-			any_culture_county = {
-				percent >= 0.4
-				any_county_province = {
-					geographical_region = world_steppe
+		OR = {
+			has_cultural_pillar = heritage_mongolic
+			has_cultural_pillar = heritage_turkic
+			has_cultural_pillar = heritage_magyar
+			scope:character = {
+				mpo_can_recruit_nomad_maa_trigger = yes
+			}
+			scope:character = {
+				has_trait = nomadic_philosophy
+			}
+			custom_description = {
+				text = culture_in_steppe_desc
+				any_culture_county = {
+					percent >= 0.4
+					any_county_province = {
+						geographical_region = world_steppe
+					}
 				}
 			}
 		}
@@ -35,6 +47,7 @@
 		unlock_horse_pastures_building = yes
 		steppe_hunt_success_chance = yes
 		unlock_voluntary_laampdom = yes
+		stewardship_traits_give_out_cav_bonus = yes
 	}
 
 	character_modifier = {

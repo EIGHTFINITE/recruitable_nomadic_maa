@@ -61,7 +61,10 @@ torch_bearers = {
 			mpo_can_recruit_nomad_maa_trigger = yes
 			AND = {
 				NOT = { government_has_flag = government_is_nomadic }
-				culture = { has_cultural_tradition = tradition_devoted_horsemanship }
+				OR = {
+					culture = { has_cultural_tradition = tradition_horse_lords }
+					culture = { has_cultural_tradition = tradition_devoted_horsemanship }
+				}
 			}
 		}
 	}
